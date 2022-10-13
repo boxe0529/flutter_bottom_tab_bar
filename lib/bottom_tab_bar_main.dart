@@ -374,7 +374,7 @@ class _BottomNavigationTile extends StatelessWidget {
       return item.badge;
     }
     return Container(
-      width: 24,
+      width: int.parse(item.badgeNo) > 9 ? 24 : 18,
       padding: EdgeInsets.fromLTRB(0, 2, 0, 2),
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -382,7 +382,7 @@ class _BottomNavigationTile extends StatelessWidget {
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Text(
-        '99+',
+        '${item.badgeNo}',
         style: TextStyle(fontSize: 10, color: Colors.white),
       ),
     );
@@ -443,7 +443,7 @@ class _BottomNavigationTile extends StatelessWidget {
         selected: selected,
         child: Stack(
           children: <Widget>[
-            Positioned(right: 4, top: 4, child: _buildBadge()),
+            Positioned(right: 10, top: 4, child: _buildBadge()),
             _buildInkWidget(label),
             Semantics(
               label: indexLabel,
